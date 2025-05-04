@@ -1,1 +1,3 @@
-console.log("success");
+import Questions from "./questions.js";
+
+console.log(Questions);
