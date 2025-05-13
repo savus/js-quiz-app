@@ -44,15 +44,18 @@ const createAnswerButtons = () => {
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
-  currentQuestion.answers.forEach((answer) => {
+  currentQuestion.answers.forEach((answer, index) => {
     const button = document.createElement("button");
+    const animationDelay = `${index * 0.15}s`;
+
+    button.classList.add("show");
+    button.style.setProperty("--anim-delay", animationDelay);
     button.innerHTML = answer.text;
     button.classList.add("btn");
-    answerButtons.appendChild(button);
-
     button.dataset.correct = answer.correct;
-
     button.addEventListener("click", answerOnClick);
+
+    answerButtons.appendChild(button);
   });
 };
 

@@ -47,6 +47,7 @@ body {
 }
 
 .btn {
+  --anim-delay: 0s;
   background-color: #fff;
   color: #222;
   font-weight: 500;
@@ -55,6 +56,11 @@ body {
   margin: var(--size-10) 0;
   text-align: left;
   transition: all 0.3s;
+  transform: scale(0);
+}
+
+.btn.show {
+  animation: bounceIn 0.3s ease-in var(--anim-delay) forwards;
 }
 
 .btn:hover:not(:disabled) {
@@ -89,4 +95,16 @@ body {
 
 .incorrect {
   background-color: #ff9393;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5, 1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
