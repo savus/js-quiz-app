@@ -46,21 +46,27 @@ body {
   font-weight: 600;
 }
 
+#answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-10);
+  padding-top: var(--size-10);
+}
+
 .btn {
   --anim-delay: 0s;
-  background-color: #fff;
-  color: #222;
+  background-color: #4681f4;
+  color: #fff;
   font-weight: 500;
   width: 100%;
   border: 1px solid #222;
-  margin: var(--size-10) 0;
   text-align: left;
   transition: all 0.3s;
   transform: scale(0);
 }
 
 .btn.show {
-  animation: bounceIn 0.3s ease-in var(--anim-delay) forwards;
+  animation: bounceIn 0.35s ease-in var(--anim-delay) forwards;
 }
 
 .btn:hover:not(:disabled) {
@@ -84,9 +90,10 @@ body {
 
 .btn,
 #next-btn {
-  border-radius: 4px;
+  border-radius: var(--size-18);
   cursor: pointer;
   padding: var(--size-10);
+  text-align: center;
 }
 
 .correct {
@@ -94,15 +101,18 @@ body {
 }
 
 .incorrect {
-  background-color: #ff9393;
+  background-color: #e75b5b;
 }
 
 @keyframes bounceIn {
   0% {
     transform: scale(0);
   }
+  40% {
+    transform: scale(1.6, 0.6);
+  }
   50% {
-    transform: scale(1.5, 1);
+    transform: scale(1.2, 0.8);
   }
   100% {
     transform: scale(1);
